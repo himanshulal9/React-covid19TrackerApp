@@ -119,6 +119,7 @@ export default function BodyComponent() {
   return (
     <Container maxWidth='xl'>
       {/* Display card Section  */}
+
       {!fetchSummary ? (
         <Box
           style={{ display: "flex", height: "200px", flexFlow: "column" }}
@@ -132,6 +133,16 @@ export default function BodyComponent() {
         </Box>
       ) : (
         <Grid container spacing={1} className={classes.root}>
+          <Grid item xs={12}>
+            <Typography
+              variant='h6'
+              component='h6'
+              style={{ color: blueGrey[800] }}
+              gutterBottom>
+              {" "}
+              Global Status{" "}
+            </Typography>
+          </Grid>
           {Object.entries(globalCases).map((item, i) => (
             <Grid key={i} item xs={6} sm={3}>
               {renderDispalyCard({
@@ -153,6 +164,16 @@ export default function BodyComponent() {
         </Grid>
       )}
       <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Typography
+            variant='h6'
+            component='h6'
+            style={{ color: blueGrey[800] }}
+            gutterBottom>
+            {" "}
+            Regional Status{" "}
+          </Typography>
+        </Grid>
         {/* Graph section  */}
         <Grid item xs={12} sm={12} lg={12}>
           <Card>
