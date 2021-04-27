@@ -57,7 +57,7 @@ export const renderGraph = ({
 };
 
 export const renderDispalyCard = ({ key, value, bgColor }) => (
-  <Card>
+  <Card raised={true}>
     <CardContent>
       <Grid container spacing={1}>
         <Grid
