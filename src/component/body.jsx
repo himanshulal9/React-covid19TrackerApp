@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BodyComponent() {
   const classes = useStyles();
-  const [indianCases, setIndianCases] = useState([]);
   const [globalCases, setGlobalCases] = useState({});
+  const [indianCases, setIndianCases] = useState([]);
   const [totalCases, settotalCases] = useState({});
 
   const [fetched, setFetched] = useState(false);
@@ -65,8 +65,8 @@ export default function BodyComponent() {
       ],
       dataOfLabels: indianCases,
       graphTitle: "Total Active Cases",
-      backgroundColor: [blue[50]],
-      borderColor: [blue[500]],
+      backgroundColor: [blue[200]],
+      borderColor: [blue[700]],
     });
 
   //rendering the summary
@@ -96,20 +96,24 @@ export default function BodyComponent() {
           const DATE = new Date(item.date);
           const CurrentMonth = DATE.getMonth();
           const CurrentYear = DATE.getFullYear();
+          console.log("cases_time_series", cases_time_series);
+          /**
+           *
+           *
+           */
           if (!data[CurrentYear]) {
             data[CurrentYear] = {};
           }
           if (!data[CurrentYear][CurrentMonth]) {
-            data[CurrentYear][CurrentMonth] = item.totalconfirmed;
+            data[CurrentYear][CurrentMonth] = +item.dailyconfirmed;
           } else {
-            data[CurrentYear][CurrentMonth] =
-              Number(data[CurrentYear][CurrentMonth]) + +item.totalconfirmed;
+            data[CurrentYear][CurrentMonth] += +item.dailyconfirmed;
           }
         });
-        // console.log("cases", data);
         settotalCases(data);
-        const IndiaCases = Object.keys(data["2021"]).map((item, i) => {
-          return data["2021"][item];
+        const currentYear = new Date().getFullYear();
+        const IndiaCases = Object.keys(data[currentYear]).map((item, i) => {
+          return data[currentYear][item];
         });
         setIndianCases(IndiaCases);
         setFetched(true);

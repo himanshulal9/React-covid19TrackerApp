@@ -9,3 +9,4 @@ export const GetAllSummary = () => {
 export const GetIndiaActiveCases = () => {
   return http.get(`https://api.covid19india.org/data.json`);
 };
+// https://api.covid19api.com
