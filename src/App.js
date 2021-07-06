@@ -1,16 +1,17 @@
-import './App.css';
-import BodyComponent from './component/body';
-import FooterComponent from './component/footer';
-import HeaderComponent from './component/header';
+import React from "react";
+import BodyComponent from "./components/bodyComponent";
+import Footer from "./components/Footer";
+import HeaderComponent from "./components/headerComponent";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <HeaderComponent/>
-      <BodyComponent/>
-      <FooterComponent/>
+    <div>
+      <HeaderComponent />
+      <BodyComponent />
+      <Footer />
     </div>
   );
 }
 
-export default App;
+// npx create-react-app covid19tracker
+// npm start
